@@ -12,7 +12,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy source code
 COPY pyproject.toml ./
 COPY src/ src/
-
+a
 # Install the package
 RUN pip install --no-cache-dir .
 
@@ -21,10 +21,6 @@ ENV PORT=8000
 ENV HOST=0.0.0.0
 
 EXPOSE 8000
-
-# Health check
-HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
-    CMD curl -sf http://localhost:${PORT}/mcp || exit 1
 
 # Run HTTP server
 CMD python -m instantly_mcp.server --transport http --host 0.0.0.0 --port $PORT
