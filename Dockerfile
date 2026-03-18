@@ -12,7 +12,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy source code
 COPY pyproject.toml ./
 COPY src/ src/
-a
+
 # Install the package
 RUN pip install --no-cache-dir .
 
